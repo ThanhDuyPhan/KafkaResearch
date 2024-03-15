@@ -8,7 +8,7 @@ namespace KafkaResearch.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private const string KAFKA_SERVER = "host1:9092";
+        private const string KAFKA_SERVER = "localhost:9092";
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -54,7 +54,8 @@ namespace KafkaResearch.Controllers
             var config = new ConsumerConfig
             {
                 BootstrapServers = KAFKA_SERVER,
-                AutoOffsetReset = AutoOffsetReset.Earliest
+                AutoOffsetReset = AutoOffsetReset.Earliest,
+                GroupId = "weblog"
             };
 
             using (var consumer = new ConsumerBuilder<Ignore, string>(config).Build())
