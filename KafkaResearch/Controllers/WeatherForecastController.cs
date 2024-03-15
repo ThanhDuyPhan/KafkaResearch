@@ -49,8 +49,9 @@ namespace KafkaResearch.Controllers
         }
 
         [HttpGet("msg")]
-        public async Task<OkResult> ListenMessageAsync()
+        public async Task<String> ListenMessageAsync()
         {
+            var result = string.Empty;
             var config = new ConsumerConfig
             {
                 BootstrapServers = KAFKA_SERVER,
@@ -62,15 +63,15 @@ namespace KafkaResearch.Controllers
             {
                 consumer.Subscribe("weblog");
 
-                while (true)
+                while (String.IsNullOrEmpty(result))
                 {
                     var consumeResult = consumer.Consume();
-                    Console.WriteLine(consumeResult.Value);
+                    result = consumeResult.Value;
                 }
 
                 consumer.Close();
             }
-            return Ok();
+            return result;
         }
     }
 }
