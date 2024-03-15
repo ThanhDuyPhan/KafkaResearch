@@ -55,7 +55,7 @@ namespace KafkaResearch.Controllers
             var config = new ConsumerConfig
             {
                 BootstrapServers = KAFKA_SERVER,
-                AutoOffsetReset = AutoOffsetReset.Earliest,
+                AutoOffsetReset = AutoOffsetReset.Latest,
                 GroupId = "weblog"
             };
 
