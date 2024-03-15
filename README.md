@@ -1,6 +1,7 @@
 # KafkaResearch
 Reference:
-https://www.geeksforgeeks.org/how-to-install-and-run-apache-kafka-on-windows/
+- https://www.geeksforgeeks.org/how-to-install-and-run-apache-kafka-on-windows/
+- https://docs.confluent.io/kafka-clients/dotnet/current/overview.html
 
 This project is demo Kafka setup in .NET
 
